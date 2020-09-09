@@ -11,6 +11,13 @@ import { EmployeeList } from "./employees/EmployeeList";
 export const ApplicationViews = (props) => {
     return (
         <>
+            <Route path="/logout" render={
+                (props) => {
+                    localStorage.removeItem("kennel_customer")
+                    props.history.push("/login")
+                }
+            } />
+            
             <LocationProvider>
                 {/* Render the location list when http://localhost:3000/ */}
                 <Route exact path="/">
